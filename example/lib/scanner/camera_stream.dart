@@ -94,7 +94,7 @@ class _CameraStreamPageState extends State<CameraStreamPage> {
 
   Future<void> tryDecodeImage(CameraImage image) async {
     if (isDetecting || !mounted) return;
-    await stop();
+    // await stop();
     setState(() {
       isDetecting = true;
     });
@@ -105,16 +105,16 @@ class _CameraStreamPageState extends State<CameraStreamPage> {
       setState(() {
         isDetecting = false;
       });
-      Navigator.of(context).pushNamed('/result', arguments: results);
+      // Navigator.of(context).pushNamed('/result', arguments: results);
     } catch (_) {
       if (!mounted) return;
       setState(() {
         isDetecting = false;
       });
       MyDialog.toast('detected nothing');
-      Future.delayed(Duration.zero).then((_) {
-        start();
-      });
+      // Future.delayed(Duration.zero).then((_) {
+      //   start();
+      // });
     }
   }
 
